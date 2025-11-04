@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: input_output_utils
+Version: 0.0.1
+Summary: Input and output utilities for HPINV processes.
+Author-email: Austin Snyder <austin-snyder@uiowa.edu>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
