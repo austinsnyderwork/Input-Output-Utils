@@ -7,3 +7,4 @@ Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 Requires-Dist: pandas
 Requires-Dist: numpy
+Requires-Dist: xlsxwriter
