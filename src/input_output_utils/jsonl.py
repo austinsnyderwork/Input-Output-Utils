@@ -21,7 +21,14 @@ class JsonlManager:
         else:
             self._logger = logger
 
-    def save(self, items: Iterable[object | dict]):
+    def save(self,
+             items: Iterable[object | dict],
+             existing_ok: bool = True):
+        if not existing_ok:
+            if os.path.getsize(self.path) > 0:
+                raise ValueError(f"existing_ok flagged as False when there is data present in"
+                                 f"\n{self.path}")
+
         with open(self.path, "a", encoding="utf-8") as f:
             for item in items:
                 if isinstance(item, dict):
