@@ -1,4 +1,5 @@
 
+from pyproj import CRS
 import pandas as pd
 
 
@@ -15,10 +16,11 @@ class GisImport:
         return df
 
     @classmethod
-    def import_gis(cls, gis_zip_path: str):
+    def import_gis(cls, gis_zip_path: str, crs: CRS):
         import geopandas as gpd
         gdf = gpd.read_file(gis_zip_path, encoding='utf-8')
         gdf.columns = [col.lower() for col in gdf.columns]
+        gdf = gdf.to_crs(crs)
 
         return gdf
 
